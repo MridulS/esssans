@@ -3,6 +3,7 @@
 import doctest
 import os
 import sys
+from importlib.metadata import version as get_version
 
 from ess import sans
 
@@ -111,10 +112,8 @@ master_doc = 'index'
 # built documents.
 #
 
-# The short X.Y version.
-version = sans.__version__
-# The full version, including alpha/beta/rc tags.
-release = sans.__version__
+release = get_version("esssans")
+version = ".".join(release.split('.')[:3])  # CalVer
 
 warning_is_error = True
 
